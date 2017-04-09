@@ -53,20 +53,20 @@
    ```
 4. nginx, pcre 다운로드
    ```shell
-   CRONOLOG
+   ## CRONOLOG
    cd cronolog
    ./configure --prefix=/usr/local/cronolog 
    make && make install
 
-   ZLIB
+   ## ZLIB
    wget http://zlib.net/zlib-1.2.8.tar.gz
    tar -zxvf zlib-1.2.8.tar.gz
 
-   PCRE
+   ## PCRE
    wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.gz
    tar -zxvf pcre-8.39.tar.gz
 
-   NGINX
+   ## NGINX
    wget http://nginx.org/download/nginx-1.10.2.tar.gz
    tar -zxvf nginx-1.10.2.tar.gz
    ```
@@ -76,13 +76,12 @@
    cd nginx-1.10.2
    ./configure --prefix=/engn001/nginxadm/nginx/nginx-1.10.2 --user=nginxadm --group=nginxadm --with-pcre=/engn001/nginxadm/nginx/installer/pcre-8.39 --with-zlib=/engn001/nginxadm/nginx/installer/zlib-1.2.8
    make && make install
-   # 컴파일 잘보고 로그 확인 
-   ```
+   ```
 
 ### 설정
 
 1. Link
-   ```shell
+   ```shell
    cd /engn001/nginxadm/nginx/nginx-1.10.2
    ln -s /logs001/nginxadm/nginx logs
    ```
@@ -102,8 +101,8 @@
    * servers/실제서버ID.conf 설정 수정: 파일 내부 주석 참조
 
 4. 소스 배포
-   Static 자원(html,css,javascript,image, ...)들을 아래 경로에 배포
-   : /srch001/nginxadm/APP_LONG_NAME/htdocs
+   * Static 자원(html,css,javascript,image, ...)들을 아래 경로에 배포
+      - /srch001/nginxadm/APP_LONG_NAME/htdocs
 
 ### 기동
 
