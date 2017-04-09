@@ -87,11 +87,10 @@
    ```
 
 2. 환경설정 복사
-   ```shell
+   ```shell
    mkdir -p /engn001/nginxadm/nginx/nginx-1.10.2/conf/servers
    ```
-
-   * 생성한 경로에 본 프로젝트의 'conf' 경로 복사
+   * 생성한 경로에 본 프로젝트의 'conf' 경로 복사
       - nginx.conf: Nginx 메인 설정 --> /engn001/nginxadm/nginx/nginx-1.10.2/conf 에 덮어쓰기
       - 서버ID.conf --> 파일명 수정 (실제 서버 ID로) --> /engn001/nginxadm/nginx/nginx-1.10.2/conf/servers 에 업로드
       - start.sh, stop.sh --> /engn001/nginxadm/nginx/nginx-1.10.2 에 업로드
