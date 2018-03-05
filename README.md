@@ -105,6 +105,32 @@
 
 ### 기동
 
-* 본 프로젝트의 아래파일을 경로 복사
+#### Script
+* 본 프로젝트의 아래파일을 '/engn001/nginxadm/nginx/nginx-1.10.2' 경로 복사
    - start.sh : 시작
    - stop.sh : 종료
+
+#### 권한 지정과 실행
+Nginx를 80, 443 포트로 실행하려면 일반적으로는 root 사용자 권한이 필요하다.
+그러나 가급적 권한이 적은 사용자의 권한으로 nginx를 실행해야 보안 취약점이 생길 가능성이 더 적다.
+앞에서도 `configure` 스크립트를 실행할 때에도 `nginxadm`으로 사용자를 설정하도록 권장했었다.
+```
+[Remind]
+--user=nginxadm --group=nginxadm
+```
+
+CentOS 6이상에서는 root 권한이 없는 계정으로도 nginx를 실행하도록 `setcap` 명령을 활용할 수 있다.
+root 또는 sudo 권한 계정으로 로그인을 해서 아래와 같은 명령을 실행한다.
+
+```bash
+sudo /usr/sbin/setcap 'cap_net_bind_service=+ep' /engn001/nginxadm/nginx/nginx-1.10.2/sbin/nginx
+```
+
+CentOS 5이하에서는 부득이하게 root 권한으로 실행한다.
+- start.sh, stop.sh 스크립트를 아래와 같은 부분을 수정해야 한다.
+```
+#!/bin/sh
+
+SETUSER="root"
+RUNNER=`whoami`
+```
