@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SETUSER="root"
+SETUSER="nginxadm"
 RUNNER=`whoami`
 
 if [ $RUNNER != $SETUSER ] ;
